@@ -18,6 +18,11 @@ class MainSearch extends Component
         $this->torrents = $repository->sendSearchData($this->string);
     }
 
+    public function updatedString() {
+        $repository = new SearchRepository();
+        $this->torrents = $repository->sendSearchData($this->string);
+    }
+
     public function render()
     {
         return view('livewire.main-search');
