@@ -15,12 +15,20 @@ class MainSearch extends Component
     }
 
     public function fetch(SearchRepository $repository) {
-        $this->torrents = $repository->sendSearchData($this->string);
+        if (strlen($this->string) > 2) {
+            $this->torrents = $repository->sendSearchData($this->string);
+        } else {
+            $this->torrents = (array) null;
+        }
     }
 
     public function updatedString() {
-        $repository = new SearchRepository();
-        $this->torrents = $repository->sendSearchData($this->string);
+        if (strlen($this->string) > 2) {
+            $repository = new SearchRepository();
+            $this->torrents = $repository->sendSearchData($this->string);
+        } else {
+            $this->torrents = (array) null;
+        }
     }
 
     public function render()
