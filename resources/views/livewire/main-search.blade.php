@@ -10,6 +10,8 @@
         </form>
     </div>
     @if(is_iterable($torrents) && count($torrents) > 1)
+        <hr>
+
         <table class="table table-striped table-hover">
             <thead>
             <th scope="col">Name</th>
@@ -18,6 +20,8 @@
             <th scope="col">Category</th>
             <th scope="col">Seeders</th>
             <th scope="col">Leechers</th>
+            <th scope="col">Uploaded by</th>
+            <th scope="col">Get</th>
             </thead>
             <tbody>
     @foreach($torrents as $torrent)
@@ -29,6 +33,8 @@
             <td>{{$torrent['Category']}}</td>
             <td>{{$torrent['Seeders']}}</td>
             <td>{{$torrent['Leechers']}}</td>
+            <td>{{$torrent['UploadedBy']}}</td>
+            <td><button class="fa-solid fa-circle-down" onclick="copyLink('{{$torrent['Magnet']}}')"></button></td>
         </tr>
 
 {{--        <p>{{$torrent['Name']}} | S: {{$torrent['Seeders']}} L:{{$torrent['Leechers']}} | Date: {{$torrent['DateUploaded']}}</p>--}}

@@ -1,3 +1,11 @@
+<script src="https://kit.fontawesome.com/e1338ef9f1.js" crossorigin="anonymous"></script>
+
+<script >
+    function copyLink(link) {
+        console.log(link)
+    }
+</script>
+
 <header class="p-3 mb-3 border-bottom">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
