@@ -1,10 +1,11 @@
-<script src="https://kit.fontawesome.com/e1338ef9f1.js" crossorigin="anonymous"></script>
-
 <script >
     function copyLink(link) {
         console.log(link)
+        navigator.clipboard.writeText(link)
     }
 </script>
+
+<script src="https://kit.fontawesome.com/e1338ef9f1.js" crossorigin="anonymous"></script>
 
 <header class="p-3 mb-3 border-bottom">
     <div class="container">
