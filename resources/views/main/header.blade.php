@@ -2,7 +2,6 @@
     function copyLink(link) {
         console.log(link)
         navigator.clipboard.writeText(link)
-        alert('Copied!')
     }
 </script>
 
