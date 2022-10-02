@@ -1,9 +1,8 @@
 <script >
     function copyLink(link) {
         console.log(link)
-        navigator.clipboard.writeText(link)
 
-        navigator.clipboard.writeText("<empty clipboard>").then(
+        navigator.clipboard.writeText(link).then(
             () => {
                 alert("Copied!")
             },
