@@ -1,5 +1,5 @@
 <script >
-    function copyLink(link) {
+    async function copyLink(link) {
         console.log(link)
 
         navigator.clipboard.writeText(link).then(
