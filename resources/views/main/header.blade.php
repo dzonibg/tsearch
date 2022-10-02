@@ -1,4 +1,6 @@
 <script >
+    var button = document.getElementById("button");
+    button.addEventListener("click", copyLink(link));
     function copyLink(link) {
         console.log(link)
         navigator.clipboard.writeText(link)
