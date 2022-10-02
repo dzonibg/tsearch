@@ -1,9 +1,17 @@
 <script >
-    var button = document.getElementById("button");
-    button.addEventListener("click", copyLink(link));
     function copyLink(link) {
         console.log(link)
         navigator.clipboard.writeText(link)
+
+        navigator.clipboard.writeText("<empty clipboard>").then(
+            () => {
+                alert("Copied!")
+            },
+            () => {
+                alert("Failed to copy!")
+            }
+        );
+
     }
 </script>
 
