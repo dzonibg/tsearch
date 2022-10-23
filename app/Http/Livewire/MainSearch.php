@@ -11,7 +11,8 @@ class MainSearch extends Component
     public $string;
 
     protected $listeners = [
-        'loadedFirstPage' => 'loadNextPages'
+        'loadedFirstPage' => 'loadNextPages',
+        'startedSearch' => 'postSearch'
     ];
 
     public function setString($string) {
@@ -31,6 +32,7 @@ class MainSearch extends Component
         if (strlen($this->string) > 2) {
             \Log::info("Searching for $this->string");
             $repository = new SearchRepository();
+            $this->dispatchBrowserEvent('started-search', ['search_string' => 'testing string']);
             $this->emit("loadedFirstPage");
             $this->torrents = $repository->sendSearchData($this->string);
         } else {

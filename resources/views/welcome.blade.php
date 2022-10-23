@@ -8,6 +8,7 @@
 <body>
 @livewireScripts
 @livewireStyles
+@include("toasts.mainToast")
 
 @include("main.header")
 
