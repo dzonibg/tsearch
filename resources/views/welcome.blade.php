@@ -9,6 +9,7 @@
 @livewireScripts
 @livewireStyles
 @include("toasts.mainToast")
+@include("toasts.copiedToast")
 
 @include("main.header")
 

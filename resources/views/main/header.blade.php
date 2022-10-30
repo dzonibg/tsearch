@@ -4,7 +4,8 @@
 
         navigator.clipboard.writeText(link).then(
             () => {
-                alert("Copied!")
+                const copiedToast = new bootstrap.Toast(copiedLiveToast)
+                copiedToast.show()
             },
             () => {
                 alert("Failed to copy!")
