@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Repositories\SearchRepository;
 use Livewire\Component;
+use Illuminate\Support\Facades\Log;
 
 class MainSearch extends Component
 {
@@ -30,7 +31,7 @@ class MainSearch extends Component
 
     public function updatedString() {
         if (strlen($this->string) > 2) {
-            \Log::info("Searching for $this->string");
+            Log::info("Searching for $this->string");
             $repository = new SearchRepository();
             $this->dispatchBrowserEvent('started-search', ['search_string' => 'testing string']);
             $this->emit("loadedFirstPage");
@@ -45,7 +46,7 @@ class MainSearch extends Component
     }
 
     public function loadNextPages() {
-        \Log::alert("Loading next pages.");
+        Log::alert("Loading next pages.");
         $repository = new SearchRepository();
         $newData = $repository->fetchNextPages($this->string);
         $this->torrents += $newData;
