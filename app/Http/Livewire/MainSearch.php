@@ -22,6 +22,7 @@ class MainSearch extends Component
 
     public function fetch(SearchRepository $repository) {
         if (strlen($this->string) > 2) {
+            $this->dispatchBrowserEvent('started-search', ['search_string' => 'testing string']);
             $this->emit("loadedFirstPage");
             $this->torrents = $repository->sendSearchData($this->string);
         } else {
@@ -50,6 +51,10 @@ class MainSearch extends Component
         $repository = new SearchRepository();
         $newData = $repository->fetchNextPages($this->string);
         $this->torrents += $newData;
+    }
+
+    public function cleanPage() {
+        $this->torrents = [];
     }
 
     public function render()

@@ -5,11 +5,12 @@
                 <input type="text" class="form-control" placeholder="Search..." aria-label="Search" name="string" wire:model.debounce.2000ms="string">
             </div>
             <div class="form-check form-check-inline">
-                <button wire:click="fetch" type="button" class="btn btn-primary">Search</button>
+                <button wire:click="fetch" type="button" class="btn btn-primary">Search torrents</button>
+                <button wire:click="cleanPage" type="button" class="btn btn-primary">Clear All</button>
             </div>
         </form>
     </div>
-    @if(is_iterable($torrents) && count($torrents) > 1)
+    @if(is_iterable($torrents) && count($torrents) > 0)
         <hr>
 
         <table class="table table-striped table-hover">
