@@ -27,6 +27,10 @@ class SearchRepository {
         return $data;
     }
 
+    /*
+     * Let's try to avoid this.
+     */
+
     public function fetchNextPages($string) { // method causes weird things to happen; need to load page 1 to fully load page 2? Will refactor this.
         $currentPage = 1;
         $errors = 0;
