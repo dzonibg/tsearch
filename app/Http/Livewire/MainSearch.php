@@ -28,7 +28,7 @@ class MainSearch extends Component
             $this->dispatchBrowserEvent('started-search', ['search_string' => 'testing string']);
             $this->torrents = $repository->sendSearchData($this->string);
             Log::info("Continuing to next pages.");
-            $this->emit("loadedFirstPage", ['page' => 1, 'errors' => 0]); // This is where you emit the event after loading the first page.
+            $this->emit("loadedFirstPage", ['page' => 2, 'errors' => 0]); // This is where you emit the event after loading the first page.
         } else {
             $this->torrents = [];
         }
@@ -39,7 +39,7 @@ class MainSearch extends Component
             Log::info("String updated. Searching for $this->string");
             $repository = new SearchRepository();
             $this->dispatchBrowserEvent('started-search', ['search_string' => 'testing string']);
-            $this->emit("loadedFirstPage", ['page' => 1, 'errors' => 0]); // This is where you emit the event after loading the first page.
+            $this->emit("loadedFirstPage", ['page' => 2, 'errors' => 0]); // This is where you emit the event after loading the first page.
             $this->torrents = $repository->sendSearchData($this->string);
         } else {
             $this->torrents = [];
