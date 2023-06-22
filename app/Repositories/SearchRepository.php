@@ -11,11 +11,18 @@ class SearchRepository {
     public array $data;
     private int $objectsPerPage;
 
-    public function fetchPage(string $string, int $pageNumber = 1): array {
+    public function fetchPage(string $string, int $pageNumber = 1) {
         Log::info("Fetching Page $pageNumber for $string");
-        $response = Http::get(getenv('SEARCH_URL') . "api/piratebay/$string/$pageNumber");
-        $data = $response->json();
-        return $data;
+        try {
+            Log::info("API FETCHING.");
+            $response = Http::get(getenv('SEARCH_URL') . "api/piratebay/$string/$pageNumber");
+            $data = $response->json();
+            Log::info("API FETCHED.");
+            return $data;
+        } catch (\RuntimeException $exception) {
+            Log::error("API Error fetching page." . $exception->getMessage());
+            return null;
+        }
     }
 
     public function sendSearchData(string $string): array {
